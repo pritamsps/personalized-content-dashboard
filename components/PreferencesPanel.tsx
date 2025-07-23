@@ -1,0 +1,1 @@
+const categories = ['Technology', 'Sports', 'Finance', 'Movies', 'Music'];
