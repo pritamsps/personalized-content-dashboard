@@ -7,7 +7,7 @@ export default function Home() {
   return (
    <DashboardLayout>
       <div className="flex flex-col items-center justify-center py-8"> 
-        <h1 className="text-3xl font-bold mb-8">Welcome to Your Dashboard!</h1>
+        <h1 className="text-3xl font-bold mb-8">Your Personalized Feed</h1>
         <div className="mt-8 w-full max-w-lg px-4">
           <PreferencesPanel />
         </div>

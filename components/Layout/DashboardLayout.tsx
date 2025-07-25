@@ -1,5 +1,6 @@
 import React from "react";
 import DarkModeToggle from "../DarkModeToggle";
+import Link from "next/link";
 
 interface DashboardLayoutProps{
     children:React.ReactNode;
@@ -27,10 +28,26 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({children})=>{
         <aside className="w-full md:w-64 bg-gray-200 dark:bg-gray-800 p-4 shadow-lg md:min-h-full">
           <h2 className="text-xl font-semibold mb-4">Navigation</h2>
           <ul className="space-y-2">
-            <li><a href="#" className="block p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200">Personalized Feed</a></li>
-            <li><a href="#" className="block p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200">Trending</a></li>
-            <li><a href="#" className="block p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200">Favorites</a></li>
-            <li><a href="#" className="block p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200">Settings</a></li>
+            <li>
+              <Link href="/" className="block p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200">
+                Personalized Feed
+              </Link>
+            </li>
+            <li>
+              <Link href="/trending" className="block p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200">
+                Trending Section
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="block p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200">
+                Favorites
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="block p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200">
+                Settings
+              </Link>
+            </li>
           </ul>
         </aside>
 
