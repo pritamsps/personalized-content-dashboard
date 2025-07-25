@@ -1,6 +1,7 @@
 import DarkModeToggle from '@/components/DarkModeToggle'
 import PreferencesPanel from '@/components/PreferencesPanel'
 import DashboardLayout from '@/components/Layout/DashboardLayout';
+import NewsFeed from '@/components/NewsFeed';
 
 export default function Home() {
   return (
@@ -10,13 +11,11 @@ export default function Home() {
         <div className="mt-8 w-full max-w-lg px-4">
           <PreferencesPanel />
         </div>
-        <div className="mt-8 w-full max-w-2xl px-4">
-            <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Your Personalized Feed</h2>
-            <div className="h-64 bg-gray-300 dark:bg-gray-700 rounded-lg flex items-center justify-center text-gray-600 dark:text-gray-400">
-                Content Feed Placeholder
+            <div className="mt-8 w-full max-w-4xl px-4"> 
+                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Your Personalized Feed</h2>
+                <NewsFeed />
             </div>
         </div>
-      </div>
     </DashboardLayout>
     
   );
