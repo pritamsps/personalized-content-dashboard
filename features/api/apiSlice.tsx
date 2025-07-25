@@ -10,8 +10,8 @@ export const apiSlice= createApi({
             query:(category: string)=>{
                 const queryCategory=category||'general';
                 return `top-headlines?category=${queryCategory}&apiKey=${NEWS_API_KEY}`;
-            };
-        });
+            },
+        }),
     }),
 });
 

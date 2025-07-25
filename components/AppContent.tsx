@@ -2,6 +2,11 @@ import { useEffect } from 'react'
 import { useAppSelector } from '@/hooks'
 import type { AppProps } from 'next/app'
 
+interface AppContentProps {
+  Component:AppProps['Component'];
+  pageProps:AppProps['pageProps'];
+}
+
 const AppContent = ({ Component, pageProps }: AppProps) => {
   const darkMode = useAppSelector((state) => state.preferences.darkMode)
 
