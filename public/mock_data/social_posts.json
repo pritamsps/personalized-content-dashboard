@@ -1,0 +1,44 @@
+{
+    "posts": [
+    {
+        "id": "social_1",
+        "user": "@TechTrendsDaily",
+        "profilePic": "https://placehold.co/50x50/FF5733/FFFFFF?text=TT",
+        "text": "Exciting news in AI! New breakthroughs in generative models are pushing boundaries. #AI #GenerativeAI",
+        "imageUrl": "https://placehold.co/400x200/50C878/FFFFFF?text=AI+Breakthrough",
+        "timestamp": "2025-07-25T10:00:00Z",
+        "likes": 125,
+        "comments": 15
+    },
+    {
+        "id": "social_2",
+        "user": "@SportsFanatic",
+        "profilePic": "https://placehold.co/50x50/3366FF/FFFFFF?text=SF",
+        "text": "What a game last night! The underdog team pulled off an incredible victory. #Sports #Football",
+        "imageUrl": "https://placehold.co/400x200/FFD700/000000?text=Game+Highlights",
+        "timestamp": "2025-07-24T18:30:00Z",
+        "likes": 230,
+        "comments": 45
+    },
+    {
+        "id": "social_3",
+        "user": "@FinanceGuru",
+        "profilePic": "https://placehold.co/50x50/8A2BE2/FFFFFF?text=FG",
+        "text": "Market trends are shifting. Keep an eye on tech stocks this quarter! #Finance #Stocks",
+        "imageUrl": "https://placehold.co/400x200/A020F0/FFFFFF?text=Market+Analysis",
+        "timestamp": "2025-07-25T09:15:00Z",
+        "likes": 88,
+        "comments": 10
+    },
+    {
+        "id": "social_4",
+        "user": "@MovieBuff",
+        "profilePic": "https://placehold.co/50x50/FF00FF/FFFFFF?text=MB",
+        "text": "Just watched the new sci-fi epic! Mind-blowing visuals and a gripping story. Highly recommend! #Movies #SciFi",
+        "imageUrl": "https://placehold.co/400x200/00CED1/FFFFFF?text=Movie+Review",
+        "timestamp": "2025-07-23T21:00:00Z",
+        "likes": 180,
+        "comments": 30
+    }
+    ]
+}
