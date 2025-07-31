@@ -2,30 +2,33 @@ import React from "react";
 import DarkModeToggle from "../DarkModeToggle";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useAppDispatch } from "@/hooks";
+import { setSearchTerm } from "@/features/preferences/preferencesSlice";
 
 interface DashboardLayoutProps{
     children:React.ReactNode;
 }
 
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
-      const [searchTerm, setSearchTerm] = useState('');
-      const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+      const dispatch= useAppDispatch();
+      const [searchTerm, setSearchTermLocal] = useState('');
+      const [debouncedSearchTerm, setDebouncedSearchTermLocal] = useState('');
       useEffect(() => {
         const timerId = setTimeout(() => {
-          setDebouncedSearchTerm(searchTerm);
+          setDebouncedSearchTermLocal(searchTerm);
         }, 500);
         return () => {
           clearTimeout(timerId);
         };
       }, [searchTerm]);
       useEffect(() => {
-        if (debouncedSearchTerm !== '') {
-          console.log('Debounced search term:', debouncedSearchTerm);
-        }
-      }, [debouncedSearchTerm]);
+        dispatch(setSearchTerm(debouncedSearchTerm)); 
+      }, [debouncedSearchTerm, dispatch]);
+
       const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchTerm(event.target.value);
+        setSearchTermLocal(event.target.value);
       };
+
       return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
           <header className="bg-white dark:bg-gray-800 shadow-md p-4 flex justify-between items-center">
@@ -42,6 +45,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
               <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold text-sm">JS</div>
             </div>
           </header>
+
           <main className="flex flex-col md:flex-row min-h-[calc(100vh-64px)]">
             <aside className="w-full md:w-64 bg-gray-200 dark:bg-gray-800 p-4 shadow-lg md:min-h-full">
               <h2 className="text-xl font-semibold mb-4">Navigation</h2>

@@ -1,16 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { categories } from '@/constants/categories'
 type PreferencesState = {
-  darkMode: boolean
-  categories: string[]
-  favorites: any[]
-}
+  darkMode: boolean;
+  categories: string[];
+  favorites: any[];
+  searchTerm: string;
+};
 
 const initialState: PreferencesState = {
   darkMode: false,
   categories: [],
-  favorites: []
-}
+  favorites: [],
+  searchTerm:'',
+};
 
 const preferencesSlice = createSlice({
   name: 'preferences',
@@ -36,15 +38,19 @@ const preferencesSlice = createSlice({
     removeFromFavorites: (state, action: PayloadAction<string>) => {
       const id = action.payload
       state.favorites = state.favorites.filter(item => item.id !== id)
-    }
-  }
-})
+    },
+    setSearchTerm:(state, action: PayloadAction<string>)=>{
+      state.searchTerm=action.payload;
+    },
+  },
+});
 
 export const {
   toggleDarkMode,
   toggleCategories,
   addToFavorites,
-  removeFromFavorites
+  removeFromFavorites,
+  setSearchTerm,
 } = preferencesSlice.actions
 
 export default preferencesSlice.reducer
