@@ -1,7 +1,8 @@
 import React from 'react';
 import { useGetSocialPostsQuery } from '@/features/api/apiSlice';
 import { FetchBaseQueryError, SerializedError } from '@reduxjs/toolkit/query/react';
-import { useAppSelector } from '@/hooks'; // <--- NEW IMPORT
+import { useAppSelector } from '@/hooks';
+import Image from 'next/image';
 
 function isFetchBaseQueryError(e: unknown): e is FetchBaseQueryError {
   return typeof e === 'object' && e != null && 'status' in e;
@@ -64,7 +65,7 @@ const SocialFeed = () => {
     if (filteredPosts.length === 0) {
       return (
         <div className="text-center p-8 text-gray-600 dark:text-gray-300">
-          <p className="text-xl font-semibold mb-2">No social posts found for "{searchTerm}".</p>
+          <p className="text-xl font-semibold mb-2">No social posts found for &quot;{searchTerm}&quot;.</p>
           <p className="text-sm">Try a different search term.</p>
         </div>
       );
