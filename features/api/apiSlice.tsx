@@ -22,12 +22,13 @@ const mockSocialBaseQuery: BaseQueryFn<string, unknown, FetchBaseQueryError, {},
         api,
         extraOptions
       );
+      const baseError = generatedErrorResponse.error as FetchBaseQueryError;
       const customError: FetchBaseQueryError = {
-        status: generatedErrorResponse.error?.status || 'CUSTOM_ERROR',
+        status: baseError.status || 'CUSTOM_ERROR',
         data: rawError instanceof Error ? rawError.message : 'An unknown social mock fetch error occurred',
-        originalStatus: generatedErrorResponse.error?.originalStatus,
-        statusText: generatedErrorResponse.error?.statusText,
-        headers: generatedErrorResponse.error?.headers,
+        originalStatus: baseError.originalStatus,
+        statusText: baseError.statusText,
+        headers: baseError.headers,
       };
       return { error: customError };
     }
@@ -50,23 +51,17 @@ export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: customBaseQuery,
   endpoints: (builder) => ({
-    
     getNews: builder.query({
-      query: (params: { category?: string; searchTerm?: string } = {}) => { // <--- FIX: Add = {} default
-        const { category, searchTerm } = params; // Destructure safely
+      query: (params: { category?: string; searchTerm?: string } = {}) => {
+        const { category, searchTerm } = params;
         const queryCategory = category || 'general';
         const searchQuery = searchTerm ? `&q=${encodeURIComponent(searchTerm)}` : '';
         return `top-headlines?category=${queryCategory}${searchQuery}&apiKey=${NEWS_API_KEY}`;
       },
     }),
-    // Modified getSocialPosts to accept a searchTerm
-    // Provide a default empty object {} for the parameter
     getSocialPosts: builder.query({
-        query: (params: { searchTerm?: string } = {}) => { // <--- FIX: Add = {} default
-            const { searchTerm } = params; // Destructure safely
-            // For mock data, we'll filter client-side for simplicity,
-            // but the parameter is passed for future real API integration.
-            // The mock data doesn't support server-side search.
+        query: (params: { searchTerm?: string } = {}) => {
+            const { searchTerm } = params;
             return 'mock_data/social_posts.json';
         },
     }),
