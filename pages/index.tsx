@@ -1,4 +1,3 @@
-import DarkModeToggle from '@/components/DarkModeToggle'
 import PreferencesPanel from '@/components/PreferencesPanel'
 import DashboardLayout from '@/components/Layout/DashboardLayout';
 import NewsFeed from '@/components/NewsFeed';
