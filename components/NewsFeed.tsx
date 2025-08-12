@@ -2,7 +2,8 @@ import React from 'react';
 import { useAppSelector } from '@/hooks';
 import { useGetNewsQuery } from '@/features/api/apiSlice';
 import ContentCard from './ContentCard';
-import { FetchBaseQueryError, SerializedError } from '@reduxjs/toolkit/query/react';
+import { FetchBaseQueryError } from '@reduxjs/toolkit/query/react';
+import { SerializedError } from '@reduxjs/toolkit';
 
 function isFetchBaseQueryError(error: unknown): error is FetchBaseQueryError {
     return typeof error === 'object' && error != null && 'status' in error;
