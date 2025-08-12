@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { useGetSocialPostsQuery } from '@/features/api/apiSlice'; 
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query/react';
 import { SerializedError } from '@reduxjs/toolkit';
@@ -70,7 +71,7 @@ const SocialFeed = () => {
         {postsToDisplay.map((post: SocialPost) => (
             <div key={post.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden p-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
             <div className="flex items-center mb-3">
-                <img src={post.profilePic} alt={`${post.user}'s profile`} className="w-10 h-10 rounded-full mr-3" />
+                <Image src={post.profilePic} alt={`${post.user}'s profile`} className="w-10 h-10 rounded-full mr-3" />
                 <div>
                 <p className="font-semibold text-gray-900 dark:text-white">{post.user}</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">{new Date(post.timestamp).toLocaleString()}</p>
@@ -78,7 +79,7 @@ const SocialFeed = () => {
             </div>
             <p className="text-gray-700 dark:text-gray-300 text-sm mb-3">{post.text}</p>
             {post.imageUrl && (
-                <img src={post.imageUrl} alt="Social post content" className="w-full h-auto rounded-md mb-3" />
+                <Image src={post.imageUrl} alt="Social post content" className="w-full h-auto rounded-md mb-3" />
             )}
             <div className="flex justify-between items-center text-xs text-gray-500 dark:text-gray-400">
                 <span>Likes: {post.likes}</span>
