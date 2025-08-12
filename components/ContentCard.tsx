@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image';
 interface NewsArticle{
     source: { id: string | null; name: string; };
           author: string | null;
@@ -16,7 +17,7 @@ const ContentCard: React.FC<ContentCardProps>=({article})=>{
     const imageUrl = article.urlToImage || `https://placehold.co/400x200/cccccc/333333?text=No+Image`;
     return(
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-              <img
+              <Image
                 src={imageUrl}
                 alt={article.title || 'News Image'}
                 className="w-full h-48 object-cover"
