@@ -1,7 +1,8 @@
 import React from 'react';
 import { useGetSocialPostsQuery } from '@/features/api/apiSlice';
-import { FetchBaseQueryError, SerializedError } from '@reduxjs/toolkit/query/react';
+import { FetchBaseQueryError } from '@reduxjs/toolkit/query/react';
 import { useAppSelector } from '@/hooks';
+import { SerializedError } from '@reduxjs/toolkit';
 import Image from 'next/image';
 
 function isFetchBaseQueryError(e: unknown): e is FetchBaseQueryError {
